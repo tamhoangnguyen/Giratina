@@ -109,23 +109,23 @@ class BST:
             kq_phai = self.duyet_LNR(nut_ht.right)
             for x in kq_phai:
                 kq.append(x)
-    #         return kq
-    # def duyet_RNL(self,goc = 0):
-    #     nut_ht = goc
-    #     if goc == 0:
-    #         nut_ht = self.goc
-    #     if nut_ht == None:
-    #         return []
-    #     else:
-    #         kq = []
-    #         kq_phai = self.duyet_RNL(nut_ht.right)
-    #         for x in kq_phai:
-    #             kq.append(x)
-    #         kq.append(nut_ht.data)
-    #         kq_trai = self.duyet_RNL(nut_ht.left)
-    #         for x in kq_trai:
-    #             kq.append(x)
-    #         return kq
+            return kq
+    def duyet_RNL(self,goc = 0):
+        nut_ht = goc
+        if goc == 0:
+            nut_ht = self.goc
+        if nut_ht == None:
+            return []
+        else:
+            kq = []
+            kq_phai = self.duyet_RNL(nut_ht.right)
+            for x in kq_phai:
+                kq.append(x)
+            kq.append(nut_ht.data)
+            kq_trai = self.duyet_RNL(nut_ht.left)
+            for x in kq_trai:
+                kq.append(x)
+            return kq
         
     def duyet_NRL(self,goc = 0):
         nut_ht = goc
@@ -174,6 +174,7 @@ def main():
         cay_nhi_phan.chen(x)
     print(cay_nhi_phan.duyet_NRL())
     print(cay_nhi_phan.duyet_LNR())
+    print(cay_nhi_phan.duyet_RNL())
     so_can_tim = int(input("Số cần tìm là?: "))    
     so_can_xoa = int(input("Số cần xóa là?: "))
     print(cay_nhi_phan.tim(so_can_tim))
